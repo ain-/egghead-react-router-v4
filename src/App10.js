@@ -10,12 +10,26 @@ const Links = () => (
   </nav>
 );
 
+const Header = ({match}) => (
+  <div className="header">
+    <Route path="/:page" render={({match}) => (
+      <h1>{match.params.page} header</h1>)} />
+  </div>
+);
+
+const Content = ({match}) => (
+  <div className="content">
+    <Route path="/:page" render={({match}) => (
+      <p>{match.params.page} content</p>)} />
+  </div>
+);
+
 const App = () => (
   <Router>
     <div>
       <Links />
-      <Route path="/:page" render={({match}) => (
-        <h1>{match.params.page}</h1>)} />
+      <Header />
+      <Content />
     </div>
   </Router>
 );
