@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, HashRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter,
+  MemoryRouter, NativeRouter, StaticRouter,
+  Link, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -24,9 +26,22 @@ const BrowserRouterApp = () => (
 );
 
 const HashRouterApp = () => (
-  <HashRouter >
+  <HashRouter hashType="hashbang">
     <LinksRoutes />
   </HashRouter>
 );
 
-export default HashRouterApp;
+const MemoryRouterApp = () => (
+  <MemoryRouter initialEntries={['/', '/about']}
+    initialIndex={1}>
+    <LinksRoutes />
+  </MemoryRouter>
+);
+
+const StaticRouterApp = () => (
+  <StaticRouter location="/about" context={{}}>
+    <LinksRoutes />
+  </StaticRouter>
+);
+
+export default StaticRouterApp;
