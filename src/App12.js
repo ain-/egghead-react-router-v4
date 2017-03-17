@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router,
-  Route, Link, Switch } from 'react-router-dom';
+  Route, Link, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 const Links = () => (
@@ -15,8 +15,11 @@ const App = () => (
   <Router>
     <div>
       <Links />
-      <Route exact path="/" render={() => (<h1>Home</h1>)} />
-      <Route path="/new" render={() => (<h1>New</h1>)}  />
+      <Switch>
+        <Route exact path="/" render={() => (<h1>Home</h1>)} />
+        <Route path="/new" render={() => (<h1>New</h1>)}  />
+        <Redirect from="/old" to="/new" />
+      </Switch>
     </div>
   </Router>
 );
