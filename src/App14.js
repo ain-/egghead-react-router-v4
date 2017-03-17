@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Link, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -23,4 +23,10 @@ const BrowserRouterApp = () => (
   </BrowserRouter>
 );
 
-export default BrowserRouterApp;
+const HashRouterApp = () => (
+  <HashRouter >
+    <LinksRoutes />
+  </HashRouter>
+);
+
+export default HashRouterApp;
